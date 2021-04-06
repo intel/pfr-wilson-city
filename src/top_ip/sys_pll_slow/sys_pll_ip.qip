@@ -1,0 +1,9 @@
+set_global_assignment -name IP_TOOL_NAME "ALTPLL"
+set_global_assignment -name IP_TOOL_VERSION "19.1"
+set_global_assignment -name IP_GENERATED_DEVICE_FAMILY "{MAX 10}"
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) "sys_pll_ip.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "sys_pll_ip.bsf"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "sys_pll_ip_inst.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "sys_pll_ip_bb.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "sys_pll_ip.ppf"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "sys_pll_ip_syn.v"]

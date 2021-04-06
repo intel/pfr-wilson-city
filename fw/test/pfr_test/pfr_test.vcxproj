@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{80ce91e7-017f-472f-b018-ce02e2567620}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\code\common\inc\pfm.h" />
+    <ClInclude Include="..\..\code\common\inc\status_enums.h" />
+    <ClInclude Include="..\..\code\wilson_city\inc\crypto.h" />
+    <ClInclude Include="..\..\code\wilson_city\inc\gen_smbus_relay_config.h" />
+    <ClInclude Include="..\..\code\wilson_city\inc\global_state.h" />
+    <ClInclude Include="..\..\code\wilson_city\inc\gen_gpo_controls.h" />
+    <ClInclude Include="..\..\code\wilson_city\inc\mailbox_utils.h" />
+    <ClInclude Include="..\..\code\wilson_city\inc\pfm_utils.h" />
+    <ClInclude Include="..\..\code\wilson_city\inc\pfm_validation.h" />
+    <ClInclude Include="..\..\code\wilson_city\inc\pfr_main.h" />
+    <ClInclude Include="..\..\code\wilson_city\inc\pfr_sys.h" />
+    <ClInclude Include="..\..\code\wilson_city\inc\t0_routines.h" />
+    <ClInclude Include="..\..\code\wilson_city\inc\timer_utils.h" />
+    <ClInclude Include="..\..\code\wilson_city\inc\tmin1_routines.h" />
+    <ClInclude Include="..\..\code\wilson_city\inc\utils.h" />
+    <ClInclude Include="..\gtest_headers.h" />
+    <ClInclude Include="..\system\alt_types_mock.h" />
+    <ClInclude Include="..\system\array_memory_mock.h" />
+    <ClInclude Include="..\system\bsp_mock.h" />
+    <ClInclude Include="..\system\crypto_mock.h" />
+    <ClInclude Include="..\system\mailbox_mock.h" />
+    <ClInclude Include="..\system\memory_mock.h" />
+    <ClInclude Include="..\system\system_mock.h" />
+    <ClInclude Include="..\system\unordered_map_memory_mock.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\system\crypto_mock.cpp" />
+    <ClCompile Include="..\system\mailbox_mock.cpp" />
+    <ClCompile Include="..\system\system_mock.cpp" />
+    <ClCompile Include="..\unittests\test_crypto.cpp" />
+    <ClCompile Include="..\unittests\test_flows.cpp" />
+    <ClCompile Include="..\unittests\test_global_state.cpp" />
+    <ClCompile Include="..\unittests\test_gen_gpo_controls.cpp" />
+    <ClCompile Include="..\unittests\test_mailbox_utils.cpp" />
+    <ClCompile Include="..\unittests\test_pfm_utils.cpp" />
+    <ClCompile Include="..\unittests\test_pfr_sys_utils.cpp" />
+    <ClCompile Include="..\unittests\test_sanity.cpp" />
+    <ClCompile Include="..\unittests\test_system_mock.cpp" />
+    <ClCompile Include="..\unittests\test_t0_routines.cpp" />
+    <ClCompile Include="..\unittests\test_timer_utils.cpp" />
+    <ClCompile Include="..\unittests\test_tmin1_routines.cpp" />
+    <ClCompile Include="..\unittests\test_utils.cpp" />
+  </ItemGroup>
+  <ItemDefinitionGroup />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.0\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets" Condition="Exists('..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.0\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets')" />
+  </ImportGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;ALT_ASM_SRC;PFR_NO_BSP_DEP;PFR_DEBUG_MODE;USE_SYSTEM_MOCK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;C:\build\kbrunham\pfr\fw\test;C:\build\kbrunham\pfr\fw\test\system;C:\build\kbrunham\pfr\fw\code\common\inc;C:\build\kbrunham\pfr\fw\code\wilson_city\inc;C:\build\kbrunham\pfr\fw\bsp\pfr_sys\bsp;C:\build\kbrunham\pfr\fw\bsp\pfr_sys\bsp\HAL\inc;C:\build\kbrunham\pfr\fw\bsp\pfr_sys\bsp\drivers\inc;C:\build\kbrunham\tools\openssl\1.0.1e\1\windows64\rel\include;C:\build\kbrunham\tools\boost\1.69\1\windows32\rel\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>C:\build\kbrunham\tools\openssl\1.0.1o\windows32;C:\build\kbrunham\tools\boost\1.69\1\windows32\rel\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay32.lib;ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>X64;_DEBUG;_CONSOLE;ALT_ASM_SRC;PFR_NO_BSP_DEP;PFR_DEBUG_MODE;USE_SYSTEM_MOCK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;C:\build\kbrunham\pfr\fw\test;C:\build\kbrunham\pfr\fw\test\system;C:\build\kbrunham\pfr\fw\code\common\inc;C:\build\kbrunham\pfr\fw\code\wilson_city\inc;C:\build\kbrunham\pfr\fw\bsp\pfr_sys\bsp;C:\build\kbrunham\pfr\fw\bsp\pfr_sys\bsp\HAL\inc;C:\build\kbrunham\pfr\fw\bsp\pfr_sys\bsp\drivers\inc;C:\build\kbrunham\tools\openssl\1.0.1e\1\windows64\rel\include;C:\build\kbrunham\tools\boost\1.69\1\windows32\rel\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>C:\build\kbrunham\tools\openssl\1.0.1e\1\windows64\rel\lib;C:\build\kbrunham\tools\boost\1.69\1\windows64\rel\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay64.lib;ssleay64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;ALT_ASM_SRC;PFR_NO_BSP_DEP;PFR_DEBUG_MODE;USE_SYSTEM_MOCK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;C:\build\kbrunham\pfr\fw\test;C:\build\kbrunham\pfr\fw\test\system;C:\build\kbrunham\pfr\fw\code\common\inc;C:\build\kbrunham\pfr\fw\code\wilson_city\inc;C:\build\kbrunham\pfr\fw\bsp\pfr_sys\bsp;C:\build\kbrunham\pfr\fw\bsp\pfr_sys\bsp\HAL\inc;C:\build\kbrunham\pfr\fw\bsp\pfr_sys\bsp\drivers\inc;C:\build\kbrunham\tools\openssl\1.0.1e\1\windows64\rel\include;C:\build\kbrunham\tools\boost\1.69\1\windows32\rel\include;%(AdditionalIncludeDirectories);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <AdditionalLibraryDirectories>C:\build\kbrunham\tools\openssl\1.0.1o\windows32;C:\build\kbrunham\tools\boost\1.69\1\windows32\rel\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay32.lib;ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <PreprocessorDefinitions>X64;NDEBUG;_CONSOLE;ALT_ASM_SRC;PFR_NO_BSP_DEP;PFR_DEBUG_MODE;USE_SYSTEM_MOCK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;C:\build\kbrunham\pfr\fw\test;C:\build\kbrunham\pfr\fw\test\system;C:\build\kbrunham\pfr\fw\code\common\inc;C:\build\kbrunham\pfr\fw\code\wilson_city\inc;C:\build\kbrunham\pfr\fw\bsp\pfr_sys\bsp;C:\build\kbrunham\pfr\fw\bsp\pfr_sys\bsp\HAL\inc;C:\build\kbrunham\pfr\fw\bsp\pfr_sys\bsp\drivers\inc;C:\build\kbrunham\tools\openssl\1.0.1e\1\windows64\rel\include;C:\build\kbrunham\tools\boost\1.69\1\windows32\rel\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <AdditionalLibraryDirectories>C:\build\kbrunham\tools\openssl\1.0.1e\1\windows64\rel\lib;C:\build\kbrunham\tools\boost\1.69\1\windows64\rel\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay64.lib;ssleay64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.0\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.0\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets'))" />
+  </Target>
+</Project>

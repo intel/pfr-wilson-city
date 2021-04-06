@@ -1,0 +1,23 @@
+array set gen_gpo_controls_pkg [list]
+set gen_gpo_controls_pkg(GPO_1_RST_SRST_BMC_PLD_R_N_BIT_POS) 0
+set gen_gpo_controls_pkg(GPO_1_RST_RSMRST_PLD_R_N_BIT_POS) 1
+set gen_gpo_controls_pkg(GPO_1_FM_SPI_PFR_BMC_BT_MASTER_SEL_BIT_POS) 2
+set gen_gpo_controls_pkg(GPO_1_FM_SPI_PFR_PCH_MASTER_SEL_BIT_POS) 3
+set gen_gpo_controls_pkg(GPO_1_RELAY1_BLOCK_DISABLE_BIT_POS) 4
+set gen_gpo_controls_pkg(GPO_1_RELAY1_FILTER_DISABLE_BIT_POS) 5
+set gen_gpo_controls_pkg(GPO_1_RELAY2_BLOCK_DISABLE_BIT_POS) 6
+set gen_gpo_controls_pkg(GPO_1_RELAY2_FILTER_DISABLE_BIT_POS) 7
+set gen_gpo_controls_pkg(GPO_1_RELAY3_BLOCK_DISABLE_BIT_POS) 8
+set gen_gpo_controls_pkg(GPO_1_RELAY3_FILTER_DISABLE_BIT_POS) 9
+set gen_gpo_controls_pkg(GPO_1_PWRGD_DSW_PWROK_R_BIT_POS) 10
+set gen_gpo_controls_pkg(GPO_1_RST_PFR_EXTRST_N_BIT_POS) 11
+set gen_gpo_controls_pkg(GPO_1_SPI_MASTER_BMC_PCHN_BIT_POS) 12
+set gen_gpo_controls_pkg(GPO_1_BMC_SPI_FILTER_DISABLE_BIT_POS) 13
+set gen_gpo_controls_pkg(GPO_1_PCH_SPI_FILTER_DISABLE_BIT_POS) 14
+set gen_gpo_controls_pkg(GPO_1_BMC_SPI_CLEAR_IBB_DETECTED_BIT_POS) 15
+set gen_gpo_controls_pkg(GPO_1_BMC_SPI_ADDR_MODE_SET_3B_BIT_POS) 16
+set gen_gpo_controls_pkg(GPO_1_TRIGGER_TOP_SWAP_RESET_BIT_POS) 17
+set gen_gpo_controls_pkg(GPO_1_FM_PFR_SLP_SUS_N_BIT_POS) 18
+set gen_gpo_controls_pkg(GPO_1_RST_SPI_PFR_BMC_BOOT_N_BIT_POS) 19
+set gen_gpo_controls_pkg(GPO_1_RST_SPI_PFR_PCH_N_BIT_POS) 20
+set gen_gpo_controls_pkg(GPO_1_CLEAR_PLTRST_DETECT_FLAG_BIT_POS) 21

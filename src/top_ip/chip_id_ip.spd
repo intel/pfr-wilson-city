@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="chip_id_ip_sim/altchip_id/altchip_id.v"
+   type="VERILOG"
+   library="chip_id_ip" />
+ <file path="chip_id_ip_sim/chip_id_ip.v" type="VERILOG" />
+ <topLevel name="chip_id_ip" />
+ <deviceFamily name="max10" />
+</simPackage>

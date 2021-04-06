@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{7c34df79-8065-4fa3-8f16-4dd70b930b40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System Mock">
+      <UniqueIdentifier>{f46c9c54-a5c1-45e1-8858-df270ebcf8ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Unit Tests">
+      <UniqueIdentifier>{b8db1283-93ce-4709-af6f-0697683446db}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\code\wilson_city\inc\crypto.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\wilson_city\inc\gen_smbus_relay_config.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\wilson_city\inc\global_state.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\wilson_city\inc\gen_gpo_controls.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\wilson_city\inc\mailbox_utils.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\wilson_city\inc\pfm_utils.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\wilson_city\inc\pfm_validation.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\wilson_city\inc\pfr_main.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\wilson_city\inc\pfr_sys.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\wilson_city\inc\t0_routines.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\wilson_city\inc\timer_utils.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\wilson_city\inc\tmin1_routines.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\wilson_city\inc\utils.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\common\inc\pfm.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\common\inc\status_enums.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gtest_headers.h">
+      <Filter>System Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\system\alt_types_mock.h">
+      <Filter>System Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\system\array_memory_mock.h">
+      <Filter>System Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\system\bsp_mock.h">
+      <Filter>System Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\system\crypto_mock.h">
+      <Filter>System Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\system\mailbox_mock.h">
+      <Filter>System Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\system\memory_mock.h">
+      <Filter>System Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\system\system_mock.h">
+      <Filter>System Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\system\unordered_map_memory_mock.h">
+      <Filter>System Mock</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\main.cpp">
+      <Filter>System Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\system\crypto_mock.cpp">
+      <Filter>System Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\system\mailbox_mock.cpp">
+      <Filter>System Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\system\system_mock.cpp">
+      <Filter>System Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\unittests\test_crypto.cpp">
+      <Filter>Unit Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\unittests\test_flows.cpp">
+      <Filter>Unit Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\unittests\test_global_state.cpp">
+      <Filter>Unit Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\unittests\test_gen_gpo_controls.cpp">
+      <Filter>Unit Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\unittests\test_mailbox_utils.cpp">
+      <Filter>Unit Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\unittests\test_pfm_utils.cpp">
+      <Filter>Unit Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\unittests\test_pfr_sys_utils.cpp">
+      <Filter>Unit Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\unittests\test_sanity.cpp">
+      <Filter>Unit Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\unittests\test_system_mock.cpp">
+      <Filter>Unit Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\unittests\test_t0_routines.cpp">
+      <Filter>Unit Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\unittests\test_timer_utils.cpp">
+      <Filter>Unit Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\unittests\test_tmin1_routines.cpp">
+      <Filter>Unit Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\unittests\test_utils.cpp">
+      <Filter>Unit Tests</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

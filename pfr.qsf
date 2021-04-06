@@ -1,0 +1,1461 @@
+# Basic assignments common to all revisions
+
+# Quartus version
+set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Standard Edition"
+
+# Device and family
+set_global_assignment -name FAMILY "MAX 10"
+set_global_assignment -name DEVICE 10M16SAU324I7G
+
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 2
+
+# Device settings
+set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE "DUAL IMAGES"
+
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
+set_global_assignment -name ENABLE_OCT_DONE OFF
+set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF
+set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_WEAK_PULLUP "AS INPUT TRI-STATED"
+set_global_assignment -name POWER_USE_DEVICE_CHARACTERISTICS MAXIMUM
+
+# Power Settings
+set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE "12.5 %"
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name FLOW_ENABLE_POWER_ANALYZER ON
+
+# Pacakages defining common parameters for all revisions
+set_global_assignment -name SYSTEMVERILOG_FILE platform_defs_pkg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE gen_smbus_relay_config_pkg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE gen_gpi_signals_pkg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE gen_gpo_controls_pkg.sv
+
+# Common Core CPLD files
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/shim/Wilson_City_Main_wrapper.sv
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/Wilson_City_Main.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/EdgeDelay.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/Mstr_Seq.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/Cpu_Seq.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/Mem_Seq.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/PwrgdLogic.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/ClockLogic.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/MainVR_Seq.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/PSU_Seq.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/Pch_Seq.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/Bmc_Seq.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/thermtrip_dly.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/SysCheck.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/SmaRT.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/Prochot.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/PFR_ByPass.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/Memhot.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/led_control.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/Fault2Code8bits.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/ADR.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/GSX_Master.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/GlitchFilter2.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/uDelayLine.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/Toggle.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/SyncWithDefault.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/SingleLatcher.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/SignalValidationDelay.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/SignalOverrideControl.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/Rst_Perst.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/reset.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/onctl_fix.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/Mux128BitsTo8.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/InputsSyncWithDefault.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/GSX.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/GlitchFilter_Fix.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/genCntr.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/FF_SR.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/eSPI_Ctl.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/EdgeDetector.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/counter2.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/counter.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/ClkDivTree.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/ClkDiv.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/common/caterr.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/IICRegs/Mem1Kx32_4Kx8.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/IICRegs/IICSlave.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/IICRegs/IICRegsController.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/IICRegs/IICRegs.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/IICRegs/Generic1Kx8BRAM.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/IICRegs/EventsBRAMRegs.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/IICRegs/EventLogger32Bits.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/IICRegs/ContWriteSeqReadRegs.v
+set_global_assignment -name VERILOG_FILE src/core_cpld/wilson_city/Source/IICRegs/ContReadSeqWriteRegs.v
+
+
+# Make the toggle clock locally routed
+set_instance_assignment -name GLOBAL_SIGNAL -to "Wilson_City_Main_wrapper:u_common_core|Wilson_City_Main:mWilson_City_Main|GSX_Master:mGSX_Master|Toggle:mToggle100KHz_SClock|rT_q" OFF
+
+# Locally route the PLL lock
+set_instance_assignment -name GLOBAL_SIGNAL -to "pfr_sys_clocks_reset:u_pfr_sys_clocks_reset|sys_pll_ip:u_sys_pll_ip|altpll:altpll_component|sys_pll_ip_altpll:auto_generated|locked" OFF
+# Locally route the 3.3V good signal
+set_instance_assignment -name GLOBAL_SIGNAL -to PWRGD_P3V3_AUX_PLD_R OFF
+
+# SMBus relay/filter files
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_filtered_relay/smbus_filtered_relay.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/common/async_input_filter.sv
+
+
+set_global_assignment -name TOP_LEVEL_ENTITY pfr_top
+
+# Enable agressive area optimizations in synthesis then high performance in fit
+set_global_assignment -name OPTIMIZATION_MODE "HIGH PERFORMANCE EFFORT"
+set_global_assignment -name CYCLONEII_OPTIMIZATION_TECHNIQUE AREA
+
+# Revision specific source files
+set_global_assignment -name QIP_FILE src/pfr_sys/pfr_sys/synthesis/pfr_sys.qip
+set_global_assignment -name QIP_FILE src/top_ip/sys_pll_slow/sys_pll_ip.qip
+
+set_global_assignment -name SYSTEMVERILOG_FILE src/pfr_sys_clocks_reset.sv
+set_global_assignment -name SYSTEMVERILOG_FILE pfr_core.sv
+set_global_assignment -name SYSTEMVERILOG_FILE pfr_top.sv
+set_global_assignment -name VERILOG_FILE src/common/synchronizer.v
+
+# JTAG SDC
+set_global_assignment -name SDC_FILE jtag.sdc
+
+# SPI related files
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_control.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_filter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_master/altera_avalon_sc_fifo.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_master/altera_merlin_arbitrator.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_master/avst_fifo.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_master/inf_sc_fifo_ser_data.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_master/intel_generic_serial_flash_interface_addr.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_master/intel_generic_serial_flash_interface_asmiblock.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_master/intel_generic_serial_flash_interface_cmd.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_master/intel_generic_serial_flash_interface_csr.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_master/qspi_inf_mux.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_master/spi_master_spi_master_merlin_demultiplexer_0.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_master/spi_master_spi_master_multiplexer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_master/spi_master_spi_master_qspi_inf_inst_qspi_inf_mux_qspi_inf_mux.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_master/spi_master_spi_master_qspi_inf_inst.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_master/spi_master_spi_master.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/spi_control/spi_master/spi_master_spi_master_xip_controller.sv
+
+# Crypto block
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/crypto256_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/sha256/sha_round_top.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/sha256/sigma0.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/sha256/sha_top.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/sha256/sha_unit.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/sha256/sha_round.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/sha256/sigma1.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/sha256/sha_scheduler_top.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/sha256/csa_64.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/sha256/kt_st0.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/sha256/sha_scheduler.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/sha256/kt_st1.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/sha256/ch.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/sha256/maj.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/sha256/kt.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/sha256/hin_init.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/ecdsa256/crypto_mem4.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/ecdsa256/multr_all_256x256.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/ecdsa256/ecdsa256_top.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/ecdsa256/csl_add_sub_265.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/ecdsa256/mult_256x9.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/ecdsa256/ocs_ecp256_ad_jpc.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/ecdsa256/crypto_mem3.v
+set_global_assignment -name SYSTEMVERILOG_FILE src/crypto/ecdsa256/crypto_mem2.v
+
+# SMBus verilog assignments
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_mailbox/i2c_slave/i2c_avl_mst_intf_gen.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_mailbox/i2c_slave/i2c_clk_cnt.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_mailbox/i2c_slave/i2c_condt_det.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_mailbox/i2c_slave/i2c_databuffer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_mailbox/i2c_slave/i2c_rxshifter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_mailbox/i2c_slave/i2c_slave.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_mailbox/i2c_slave/i2c_slvfsm.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_mailbox/i2c_slave/i2c_spksupp.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_mailbox/i2c_slave/i2c_txout.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_mailbox/i2c_slave/i2c_txshifter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_mailbox/smbus_mailbox.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_mailbox/reg_file.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_mailbox/dp_ram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_mailbox/address_protector.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_mailbox/fifo.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/smbus_mailbox/sp_ram.sv
+
+# RFNVRAM verilog assignments
+set_global_assignment -name SYSTEMVERILOG_FILE src/rfnvram_smbus_master/rfnvram_smbus_master.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/rfnvram_smbus_master/i2c_master/i2c_clk_cnt.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/rfnvram_smbus_master/i2c_master/i2c_condt_det.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/rfnvram_smbus_master/i2c_master/i2c_condt_gen.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/rfnvram_smbus_master/i2c_master/i2c_csr.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/rfnvram_smbus_master/i2c_master/i2c_fifo.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/rfnvram_smbus_master/i2c_master/i2c_master.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/rfnvram_smbus_master/i2c_master/i2c_mstfsm.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/rfnvram_smbus_master/i2c_master/i2c_spksupp.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/rfnvram_smbus_master/i2c_master/i2c_txout.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/rfnvram_smbus_master/i2c_master/i2c_txshifter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/rfnvram_smbus_master/i2c_master/i2c_rxshifter.sv
+
+# Timer bank
+set_global_assignment -name SYSTEMVERILOG_FILE src/timer_bank/timer_bank.sv
+
+set_global_assignment -name SDC_FILE pfr.sdc
+
+# Promote monitored SPI to globals
+set_instance_assignment -name GLOBAL_SIGNAL ON -to SPI_BMC_BT_MUXED_MON_CLK
+set_instance_assignment -name GLOBAL_SIGNAL ON -to SPI_PCH_BMC_SAFS_MUXED_MON_CLK
+
+# Platform specific pin assignments
+set_location_assignment PIN_M3 -to CLK_25M_CKMNG_MAIN_PLD
+
+
+set_location_assignment PIN_U6 -to DBP_POWER_BTN_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to DBP_POWER_BTN_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to DBP_POWER_BTN_N
+
+
+set_location_assignment PIN_T5 -to DBP_SYSPWROK_PLD
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to DBP_SYSPWROK_PLD
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to DBP_SYSPWROK_PLD
+
+
+set_location_assignment PIN_C7 -to FAN_BMC_PWM_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FAN_BMC_PWM_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FAN_BMC_PWM_R
+
+
+set_location_assignment PIN_T6 -to FM_ADR_COMPLETE
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_ADR_COMPLETE
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_ADR_COMPLETE
+
+
+set_location_assignment PIN_T7 -to FM_ADR_COMPLETE_DLY
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_ADR_COMPLETE_DLY
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_ADR_COMPLETE_DLY
+
+
+set_location_assignment PIN_T8 -to FM_ADR_SMI_GPIO_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_ADR_SMI_GPIO_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_ADR_SMI_GPIO_N
+
+
+set_location_assignment PIN_T9 -to FM_ADR_TRIGGER_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_ADR_TRIGGER_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_ADR_TRIGGER_N
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to FM_ADR_TRIGGER_N
+
+
+set_location_assignment PIN_N1 -to FM_AUX_SW_EN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_AUX_SW_EN
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_AUX_SW_EN
+
+
+set_location_assignment PIN_P18 -to FM_BMC_BMCINIT
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_BMC_BMCINIT
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_BMC_BMCINIT
+
+
+set_location_assignment PIN_T1 -to FM_BMC_ONCTL_N_PLD
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_BMC_ONCTL_N_PLD
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_BMC_ONCTL_N_PLD
+
+
+set_location_assignment PIN_D7 -to FM_BMC_PLD_PWRBTN_OUT_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_BMC_PLD_PWRBTN_OUT_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_BMC_PLD_PWRBTN_OUT_N
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to FM_BMC_PLD_PWRBTN_OUT_N
+
+
+set_location_assignment PIN_T3 -to FM_BMC_PWRBTN_OUT_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_BMC_PWRBTN_OUT_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_BMC_PWRBTN_OUT_N
+
+
+set_location_assignment PIN_M9 -to FM_CPU_BCLK5_OE_R_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_CPU_BCLK5_OE_R_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU_BCLK5_OE_R_N
+
+
+set_location_assignment PIN_U5 -to FM_CPU_CATERR_DLY_LVT3_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_CPU_CATERR_DLY_LVT3_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU_CATERR_DLY_LVT3_N
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to FM_CPU_CATERR_DLY_LVT3_N
+
+
+set_location_assignment PIN_U3 -to FM_CPU_CATERR_PLD_LVT3_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU_CATERR_PLD_LVT3_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU_CATERR_PLD_LVT3_N
+
+
+set_location_assignment PIN_B3 -to FM_CPU1_DIMM_CH1_4_FAULT_LED_SEL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_CPU1_DIMM_CH1_4_FAULT_LED_SEL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU1_DIMM_CH1_4_FAULT_LED_SEL
+
+
+set_location_assignment PIN_B4 -to FM_CPU1_DIMM_CH5_8_FAULT_LED_SEL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_CPU1_DIMM_CH5_8_FAULT_LED_SEL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU1_DIMM_CH5_8_FAULT_LED_SEL
+
+
+set_location_assignment PIN_R4 -to FM_CPU1_FIVR_FAULT_LVT3_PLD
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU1_FIVR_FAULT_LVT3_PLD
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU1_FIVR_FAULT_LVT3_PLD
+
+
+set_location_assignment PIN_N7 -to FM_CPU1_INTR_PRSNT
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU1_INTR_PRSNT
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU1_INTR_PRSNT
+
+
+set_location_assignment PIN_P15 -to FM_CPU1_MEMHOT_IN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_CPU1_MEMHOT_IN
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU1_MEMHOT_IN
+
+
+set_location_assignment PIN_R16 -to FM_CPU1_MEMTRIP_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU1_MEMTRIP_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU1_MEMTRIP_N
+
+
+set_location_assignment PIN_V3 -to FM_CPU1_PKGID0
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU1_PKGID0
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU1_PKGID0
+
+
+set_location_assignment PIN_V4 -to FM_CPU1_PKGID1
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU1_PKGID1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU1_PKGID1
+
+
+set_location_assignment PIN_V5 -to FM_CPU1_PKGID2
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU1_PKGID2
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU1_PKGID2
+
+
+set_location_assignment PIN_V6 -to FM_CPU1_PROC_ID0
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU1_PROC_ID0
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU1_PROC_ID0
+
+
+set_location_assignment PIN_V7 -to FM_CPU1_PROC_ID1
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU1_PROC_ID1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU1_PROC_ID1
+
+
+set_location_assignment PIN_P17 -to FM_CPU1_PROCHOT_LVC3_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_CPU1_PROCHOT_LVC3_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU1_PROCHOT_LVC3_N
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to FM_CPU1_PROCHOT_LVC3_N
+
+
+set_location_assignment PIN_R5 -to FM_CPU1_SKTOCC_LVT3_PLD_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU1_SKTOCC_LVT3_PLD_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU1_SKTOCC_LVT3_PLD_N
+
+
+set_location_assignment PIN_R6 -to FM_CPU1_THERMTRIP_LVT3_PLD_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU1_THERMTRIP_LVT3_PLD_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU1_THERMTRIP_LVT3_PLD_N
+
+
+set_location_assignment PIN_B5 -to FM_CPU2_DIMM_CH1_4_FAULT_LED_SEL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_CPU2_DIMM_CH1_4_FAULT_LED_SEL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU2_DIMM_CH1_4_FAULT_LED_SEL
+
+
+set_location_assignment PIN_B7 -to FM_CPU2_DIMM_CH5_8_FAULT_LED_SEL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_CPU2_DIMM_CH5_8_FAULT_LED_SEL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU2_DIMM_CH5_8_FAULT_LED_SEL
+
+
+set_location_assignment PIN_R8 -to FM_CPU2_FIVR_FAULT_LVT3_PLD
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU2_FIVR_FAULT_LVT3_PLD
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU2_FIVR_FAULT_LVT3_PLD
+
+
+set_location_assignment PIN_N8 -to FM_CPU2_INTR_PRSNT
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU2_INTR_PRSNT
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU2_INTR_PRSNT
+
+
+set_location_assignment PIN_P14 -to FM_CPU2_MEMHOT_IN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_CPU2_MEMHOT_IN
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU2_MEMHOT_IN
+
+
+set_location_assignment PIN_R15 -to FM_CPU2_MEMTRIP_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU2_MEMTRIP_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU2_MEMTRIP_N
+
+
+set_location_assignment PIN_V8 -to FM_CPU2_PKGID0
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU2_PKGID0
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU2_PKGID0
+
+
+set_location_assignment PIN_V9 -to FM_CPU2_PKGID1
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU2_PKGID1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU2_PKGID1
+
+
+set_location_assignment PIN_V10 -to FM_CPU2_PKGID2
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU2_PKGID2
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU2_PKGID2
+
+
+set_location_assignment PIN_V11 -to FM_CPU2_PROC_ID0
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU2_PROC_ID0
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU2_PROC_ID0
+
+
+set_location_assignment PIN_V12 -to FM_CPU2_PROC_ID1
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU2_PROC_ID1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU2_PROC_ID1
+
+
+set_location_assignment PIN_P16 -to FM_CPU2_PROCHOT_LVC3_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_CPU2_PROCHOT_LVC3_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU2_PROCHOT_LVC3_N
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to FM_CPU2_PROCHOT_LVC3_N
+
+
+set_location_assignment PIN_R9 -to FM_CPU2_SKTOCC_LVT3_PLD_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU2_SKTOCC_LVT3_PLD_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU2_SKTOCC_LVT3_PLD_N
+
+
+set_location_assignment PIN_L3 -to FM_CPU2_THERMTRIP_LVT3_PLD_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_CPU2_THERMTRIP_LVT3_PLD_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_CPU2_THERMTRIP_LVT3_PLD_N
+
+
+set_location_assignment PIN_H9 -to FM_DIS_PS_PWROK_DLY
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_DIS_PS_PWROK_DLY
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_DIS_PS_PWROK_DLY
+
+
+set_location_assignment PIN_B8 -to FM_FAN_FAULT_LED_SEL_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_FAN_FAULT_LED_SEL_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_FAN_FAULT_LED_SEL_N
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to FM_FAN_FAULT_LED_SEL_N
+
+
+set_location_assignment PIN_V13 -to FM_FORCE_PWRON_LVC3
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_FORCE_PWRON_LVC3
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_FORCE_PWRON_LVC3
+
+
+set_location_assignment PIN_E16 -to FM_ME_PFR_1
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_ME_PFR_1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_ME_PFR_1
+
+
+set_location_assignment PIN_E17 -to FM_ME_PFR_2
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_ME_PFR_2
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_ME_PFR_2
+
+
+set_location_assignment PIN_R11 -to FM_MEM_THERM_EVENT_CPU1_LVT3_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_MEM_THERM_EVENT_CPU1_LVT3_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_MEM_THERM_EVENT_CPU1_LVT3_N
+
+
+set_location_assignment PIN_R10 -to FM_MEM_THERM_EVENT_CPU2_LVT3_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_MEM_THERM_EVENT_CPU2_LVT3_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_MEM_THERM_EVENT_CPU2_LVT3_N
+
+
+set_location_assignment PIN_N3 -to FM_P1V1_EN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_P1V1_EN
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_P1V1_EN
+
+
+set_location_assignment PIN_L12 -to FM_P1V8_PCIE_CPU1_EN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_P1V8_PCIE_CPU1_EN
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_P1V8_PCIE_CPU1_EN
+
+
+set_location_assignment PIN_L11 -to FM_P1V8_PCIE_CPU2_EN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_P1V8_PCIE_CPU2_EN
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_P1V8_PCIE_CPU2_EN
+
+
+set_location_assignment PIN_U1 -to FM_P2V5_BMC_EN_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_P2V5_BMC_EN_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_P2V5_BMC_EN_R
+
+
+set_location_assignment PIN_P1 -to FM_P5V_EN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_P5V_EN
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_P5V_EN
+
+
+set_location_assignment PIN_V15 -to FM_PCH_ESPI_MUX_SEL_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PCH_ESPI_MUX_SEL_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PCH_ESPI_MUX_SEL_R
+
+
+set_location_assignment PIN_L7 -to FM_PCH_P1V8_AUX_EN_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PCH_P1V8_AUX_EN_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PCH_P1V8_AUX_EN_R
+
+
+set_location_assignment PIN_D18 -to FM_PCH_PRSNT_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_PCH_PRSNT_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PCH_PRSNT_N
+
+
+set_location_assignment PIN_C18 -to FM_PFR_CLK_MUX_SEL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PFR_CLK_MUX_SEL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PFR_CLK_MUX_SEL
+
+
+set_location_assignment PIN_B1 -to FM_PFR_CPU1_BMCINIT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PFR_CPU1_BMCINIT
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PFR_CPU1_BMCINIT
+set_instance_assignment -name SLEW_RATE 2 -to FM_PFR_CPU1_BMCINIT
+
+
+set_location_assignment PIN_C1 -to FM_PFR_CPU1_FRMAGENT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PFR_CPU1_FRMAGENT
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PFR_CPU1_FRMAGENT
+set_instance_assignment -name SLEW_RATE 2 -to FM_PFR_CPU1_FRMAGENT
+
+
+set_location_assignment PIN_C2 -to FM_PFR_CPU2_BMCINIT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PFR_CPU2_BMCINIT
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PFR_CPU2_BMCINIT
+set_instance_assignment -name SLEW_RATE 2 -to FM_PFR_CPU2_BMCINIT
+
+
+set_location_assignment PIN_N18 -to FM_PFR_DEBUG_MODE_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_PFR_DEBUG_MODE_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PFR_DEBUG_MODE_N
+
+
+set_location_assignment PIN_G8 -to FM_PFR_FORCE_RECOVERY_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_PFR_FORCE_RECOVERY_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PFR_FORCE_RECOVERY_N
+
+
+set_location_assignment PIN_D1 -to FM_PFR_LEGACY_CPU1
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PFR_LEGACY_CPU1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PFR_LEGACY_CPU1
+set_instance_assignment -name SLEW_RATE 2 -to FM_PFR_LEGACY_CPU1
+
+
+set_location_assignment PIN_T4 -to FM_PFR_MUX_OE_CTL_PLD
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PFR_MUX_OE_CTL_PLD
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PFR_MUX_OE_CTL_PLD
+
+
+set_location_assignment PIN_G9 -to FM_PFR_PROV_UPDATE_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_PFR_PROV_UPDATE_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PFR_PROV_UPDATE_N
+
+
+set_location_assignment PIN_G1 -to FM_PLD_CLKS_OE_R_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PLD_CLKS_OE_R_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PLD_CLKS_OE_R_N
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to FM_PLD_CLKS_OE_R_N
+set_instance_assignment -name SLEW_RATE 2 -to FM_PLD_CLKS_OE_R_N
+
+
+set_location_assignment PIN_H8 -to FM_PLD_HEARTBEAT_LVC3
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PLD_HEARTBEAT_LVC3
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PLD_HEARTBEAT_LVC3
+
+
+set_location_assignment PIN_T10 -to FM_PLD_PCH_DATA_R
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_PLD_PCH_DATA_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PLD_PCH_DATA_R
+
+
+set_location_assignment PIN_D5 -to FM_PLD_REV_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_PLD_REV_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PLD_REV_N
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to FM_PLD_REV_N
+
+
+set_location_assignment PIN_R12 -to FM_PMBUS_ALERT_B_EN
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_PMBUS_ALERT_B_EN
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PMBUS_ALERT_B_EN
+
+
+set_location_assignment PIN_A11 -to FM_POST_7SEG1_SEL_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_POST_7SEG1_SEL_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_POST_7SEG1_SEL_N
+
+
+set_location_assignment PIN_B2 -to FM_POST_7SEG2_SEL_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_POST_7SEG2_SEL_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_POST_7SEG2_SEL_N
+
+
+set_location_assignment PIN_A10 -to FM_POSTLED_SEL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_POSTLED_SEL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_POSTLED_SEL
+
+
+set_location_assignment PIN_P2 -to FM_PS_EN_PLD_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PS_EN_PLD_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PS_EN_PLD_R
+
+
+set_location_assignment PIN_V2 -to FM_PS_PWROK_DLY_SEL
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_PS_PWROK_DLY_SEL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PS_PWROK_DLY_SEL
+
+
+set_location_assignment PIN_J2 -to FM_PVCCANA_CPU1_EN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PVCCANA_CPU1_EN
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PVCCANA_CPU1_EN
+set_instance_assignment -name SLEW_RATE 2 -to FM_PVCCANA_CPU1_EN
+
+
+set_location_assignment PIN_N11 -to FM_PVCCANA_CPU2_EN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PVCCANA_CPU2_EN
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PVCCANA_CPU2_EN
+
+
+set_location_assignment PIN_G3 -to FM_PVCCIN_CPU1_EN_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PVCCIN_CPU1_EN_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PVCCIN_CPU1_EN_R
+set_instance_assignment -name SLEW_RATE 2 -to FM_PVCCIN_CPU1_EN_R
+
+
+set_location_assignment PIN_V16 -to FM_PVCCIN_CPU1_PWR_IN_ALERT_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_PVCCIN_CPU1_PWR_IN_ALERT_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PVCCIN_CPU1_PWR_IN_ALERT_N
+
+
+set_location_assignment PIN_H6 -to FM_PVCCIN_CPU2_EN_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PVCCIN_CPU2_EN_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PVCCIN_CPU2_EN_R
+set_instance_assignment -name SLEW_RATE 2 -to FM_PVCCIN_CPU2_EN_R
+
+
+set_location_assignment PIN_V17 -to FM_PVCCIN_CPU2_PWR_IN_ALERT_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_PVCCIN_CPU2_PWR_IN_ALERT_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PVCCIN_CPU2_PWR_IN_ALERT_N
+
+
+set_location_assignment PIN_K16 -to FM_PVCCIO_CPU1_EN_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PVCCIO_CPU1_EN_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PVCCIO_CPU1_EN_R
+
+
+set_location_assignment PIN_K15 -to FM_PVCCIO_CPU2_EN_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PVCCIO_CPU2_EN_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PVCCIO_CPU2_EN_R
+
+
+set_location_assignment PIN_R18 -to FM_PVPP_CPU1_EN_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PVPP_CPU1_EN_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PVPP_CPU1_EN_R
+
+
+set_location_assignment PIN_R17 -to FM_PVPP_CPU2_EN_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PVPP_CPU2_EN_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PVPP_CPU2_EN_R
+
+
+set_location_assignment PIN_L2 -to FM_RST_PERST_BIT0
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_RST_PERST_BIT0
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_RST_PERST_BIT0
+
+
+set_location_assignment PIN_L1 -to FM_RST_PERST_BIT1
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_RST_PERST_BIT1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_RST_PERST_BIT1
+
+
+set_location_assignment PIN_K7 -to FM_RST_PERST_BIT2
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_RST_PERST_BIT2
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_RST_PERST_BIT2
+
+
+set_location_assignment PIN_R1 -to FM_SLP_SUS_RSM_RST_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_SLP_SUS_RSM_RST_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_SLP_SUS_RSM_RST_N
+
+
+set_location_assignment PIN_R2 -to FM_SLPS3_PLD_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_SLPS3_PLD_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_SLPS3_PLD_N
+
+
+set_location_assignment PIN_R3 -to FM_SLPS4_PLD_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_SLPS4_PLD_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_SLPS4_PLD_N
+
+
+set_location_assignment PIN_A16 -to FM_SPI_PFR_BMC_BT_MASTER_SEL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_SPI_PFR_BMC_BT_MASTER_SEL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_SPI_PFR_BMC_BT_MASTER_SEL
+
+
+set_location_assignment PIN_D10 -to FM_SPI_PFR_PCH_MASTER_SEL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_SPI_PFR_PCH_MASTER_SEL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_SPI_PFR_PCH_MASTER_SEL
+
+
+set_location_assignment PIN_U13 -to FM_SYS_THROTTLE_LVC3_PLD_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_SYS_THROTTLE_LVC3_PLD_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_SYS_THROTTLE_LVC3_PLD_R
+
+
+set_location_assignment PIN_U15 -to FM_THERMTRIP_DLY_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_THERMTRIP_DLY_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_THERMTRIP_DLY_R
+
+
+set_location_assignment PIN_U12 -to FM_THROTTLE_R_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FM_THROTTLE_R_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_THROTTLE_R_N
+
+
+set_location_assignment PIN_D8 -to FM_VCCSA_CPU1_EN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_VCCSA_CPU1_EN
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_VCCSA_CPU1_EN
+
+
+set_location_assignment PIN_V14 -to FM_VCCSA_CPU2_EN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_VCCSA_CPU2_EN
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_VCCSA_CPU2_EN
+
+
+set_location_assignment PIN_U16 -to FP_BMC_PWR_BTN_CO_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FP_BMC_PWR_BTN_CO_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FP_BMC_PWR_BTN_CO_N
+
+
+set_location_assignment PIN_E15 -to FP_ID_BTN_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FP_ID_BTN_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FP_ID_BTN_N
+
+
+set_location_assignment PIN_D15 -to FP_ID_BTN_PFR_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FP_ID_BTN_PFR_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FP_ID_BTN_PFR_N
+
+
+set_location_assignment PIN_D16 -to FP_ID_LED_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FP_ID_LED_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FP_ID_LED_N
+
+
+set_location_assignment PIN_D17 -to FP_ID_LED_PFR_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FP_ID_LED_PFR_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FP_ID_LED_PFR_N
+
+
+set_location_assignment PIN_M8 -to FP_LED_FAN_FAULT_PWRSTBY_PLD_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FP_LED_FAN_FAULT_PWRSTBY_PLD_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FP_LED_FAN_FAULT_PWRSTBY_PLD_N
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to FP_LED_FAN_FAULT_PWRSTBY_PLD_N
+
+
+set_location_assignment PIN_B9 -to FP_LED_STATUS_AMBER_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FP_LED_STATUS_AMBER_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FP_LED_STATUS_AMBER_N
+
+
+set_location_assignment PIN_C4 -to FP_LED_STATUS_AMBER_PFR_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FP_LED_STATUS_AMBER_PFR_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FP_LED_STATUS_AMBER_PFR_N
+
+
+set_location_assignment PIN_C5 -to FP_LED_STATUS_GREEN_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to FP_LED_STATUS_GREEN_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FP_LED_STATUS_GREEN_N
+
+
+set_location_assignment PIN_C6 -to FP_LED_STATUS_GREEN_PFR_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FP_LED_STATUS_GREEN_PFR_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FP_LED_STATUS_GREEN_PFR_N
+
+
+set_location_assignment PIN_T11 -to IRQ_PVCCIN_CPU1_VRHOT_LVC3_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to IRQ_PVCCIN_CPU1_VRHOT_LVC3_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to IRQ_PVCCIN_CPU1_VRHOT_LVC3_N
+
+
+set_location_assignment PIN_R14 -to IRQ_PVCCIN_CPU2_VRHOT_LVC3_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to IRQ_PVCCIN_CPU2_VRHOT_LVC3_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to IRQ_PVCCIN_CPU2_VRHOT_LVC3_N
+
+
+set_location_assignment PIN_T12 -to IRQ_PVDDQ_ABCD_CPU1_VRHOT_LVC3_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to IRQ_PVDDQ_ABCD_CPU1_VRHOT_LVC3_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to IRQ_PVDDQ_ABCD_CPU1_VRHOT_LVC3_N
+
+
+set_location_assignment PIN_T14 -to IRQ_PVDDQ_ABCD_CPU2_VRHOT_LVC3_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to IRQ_PVDDQ_ABCD_CPU2_VRHOT_LVC3_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to IRQ_PVDDQ_ABCD_CPU2_VRHOT_LVC3_N
+
+
+set_location_assignment PIN_T13 -to IRQ_PVDDQ_EFGH_CPU1_VRHOT_LVC3_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to IRQ_PVDDQ_EFGH_CPU1_VRHOT_LVC3_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to IRQ_PVDDQ_EFGH_CPU1_VRHOT_LVC3_N
+
+
+set_location_assignment PIN_T15 -to IRQ_PVDDQ_EFGH_CPU2_VRHOT_LVC3_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to IRQ_PVDDQ_EFGH_CPU2_VRHOT_LVC3_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to IRQ_PVDDQ_EFGH_CPU2_VRHOT_LVC3_N
+
+
+set_location_assignment PIN_R13 -to IRQ_SML1_PMBUS_PLD_ALERT_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to IRQ_SML1_PMBUS_PLD_ALERT_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to IRQ_SML1_PMBUS_PLD_ALERT_N
+
+
+set_location_assignment PIN_A2 -to LED_CONTROL_0
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED_CONTROL_0
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to LED_CONTROL_0
+
+
+set_location_assignment PIN_A3 -to LED_CONTROL_1
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED_CONTROL_1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to LED_CONTROL_1
+
+
+set_location_assignment PIN_A4 -to LED_CONTROL_2
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED_CONTROL_2
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to LED_CONTROL_2
+
+
+set_location_assignment PIN_A5 -to LED_CONTROL_3
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED_CONTROL_3
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to LED_CONTROL_3
+
+
+set_location_assignment PIN_A6 -to LED_CONTROL_4
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED_CONTROL_4
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to LED_CONTROL_4
+
+
+set_location_assignment PIN_A7 -to LED_CONTROL_5
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED_CONTROL_5
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to LED_CONTROL_5
+
+
+set_location_assignment PIN_A8 -to LED_CONTROL_6
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED_CONTROL_6
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to LED_CONTROL_6
+
+
+set_location_assignment PIN_A9 -to LED_CONTROL_7
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED_CONTROL_7
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to LED_CONTROL_7
+
+
+set_location_assignment PIN_M4 -to PWRGD_BIAS_P1V1
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_BIAS_P1V1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_BIAS_P1V1
+
+
+set_location_assignment PIN_H1 -to PWRGD_CPU1_LVC3
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PWRGD_CPU1_LVC3
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_CPU1_LVC3
+set_instance_assignment -name SLEW_RATE 2 -to PWRGD_CPU1_LVC3
+
+
+set_location_assignment PIN_T18 -to PWRGD_CPU1_PVDDQ_ABCD
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_CPU1_PVDDQ_ABCD
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_CPU1_PVDDQ_ABCD
+
+
+set_location_assignment PIN_T17 -to PWRGD_CPU1_PVDDQ_EFGH
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_CPU1_PVDDQ_EFGH
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_CPU1_PVDDQ_EFGH
+
+
+set_location_assignment PIN_H2 -to PWRGD_CPU2_LVC3
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PWRGD_CPU2_LVC3
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_CPU2_LVC3
+set_instance_assignment -name SLEW_RATE 2 -to PWRGD_CPU2_LVC3
+
+
+set_location_assignment PIN_T16 -to PWRGD_CPU2_PVDDQ_ABCD
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_CPU2_PVDDQ_ABCD
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_CPU2_PVDDQ_ABCD
+
+
+set_location_assignment PIN_U18 -to PWRGD_CPU2_PVDDQ_EFGH
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_CPU2_PVDDQ_EFGH
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_CPU2_PVDDQ_EFGH
+
+
+set_location_assignment PIN_L10 -to PWRGD_CPUPWRGD_PLD_R
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_CPUPWRGD_PLD_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_CPUPWRGD_PLD_R
+
+
+set_location_assignment PIN_P10 -to PWRGD_DRAMPWRGD_CPU
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PWRGD_DRAMPWRGD_CPU
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_DRAMPWRGD_CPU
+
+
+set_location_assignment PIN_D6 -to PWRGD_DSW_PWROK_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PWRGD_DSW_PWROK_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_DSW_PWROK_R
+
+
+set_location_assignment PIN_M2 -to PWRGD_P1V05_PCH_AUX
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_P1V05_PCH_AUX
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_P1V05_PCH_AUX
+
+
+set_location_assignment PIN_T2 -to PWRGD_P1V1_BMC_AUX
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_P1V1_BMC_AUX
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_P1V1_BMC_AUX
+
+
+set_location_assignment PIN_M1 -to PWRGD_P1V8_PCH_AUX_PLD
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_P1V8_PCH_AUX_PLD
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_P1V8_PCH_AUX_PLD
+
+
+set_location_assignment PIN_J1 -to PWRGD_P1V8_PCIE_CPU1
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_P1V8_PCIE_CPU1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_P1V8_PCIE_CPU1
+
+
+set_location_assignment PIN_M10 -to PWRGD_P1V8_PCIE_CPU2
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_P1V8_PCIE_CPU2
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_P1V8_PCIE_CPU2
+
+
+set_location_assignment PIN_K8 -to PWRGD_P3V3
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_P3V3
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_P3V3
+
+
+set_location_assignment PIN_L8 -to PWRGD_P3V3_AUX_PLD_R
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_P3V3_AUX_PLD_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_P3V3_AUX_PLD_R
+
+
+set_location_assignment PIN_P4 -to PWRGD_PCH_PWROK_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PWRGD_PCH_PWROK_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_PCH_PWROK_R
+set_instance_assignment -name SLEW_RATE 2 -to PWRGD_PCH_PWROK_R
+
+
+set_location_assignment PIN_P3 -to PWRGD_PS_PWROK_PLD_R
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_PS_PWROK_PLD_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_PS_PWROK_PLD_R
+
+
+set_location_assignment PIN_N14 -to PWRGD_PVCCIN_CPU1
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_PVCCIN_CPU1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_PVCCIN_CPU1
+
+
+set_location_assignment PIN_M18 -to PWRGD_PVCCIN_CPU2
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_PVCCIN_CPU2
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_PVCCIN_CPU2
+
+
+set_location_assignment PIN_M12 -to PWRGD_PVCCIO_CPU1
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_PVCCIO_CPU1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_PVCCIO_CPU1
+
+
+set_location_assignment PIN_M11 -to PWRGD_PVCCIO_CPU2
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_PVCCIO_CPU2
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_PVCCIO_CPU2
+
+
+set_location_assignment PIN_N16 -to PWRGD_PVCCSA_CPU1
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_PVCCSA_CPU1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_PVCCSA_CPU1
+
+
+set_location_assignment PIN_N15 -to PWRGD_PVCCSA_CPU2
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_PVCCSA_CPU2
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_PVCCSA_CPU2
+
+
+set_location_assignment PIN_N4 -to PWRGD_SYS_PWROK_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PWRGD_SYS_PWROK_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_SYS_PWROK_R
+set_instance_assignment -name SLEW_RATE 2 -to PWRGD_SYS_PWROK_R
+
+
+set_location_assignment PIN_M16 -to PWRGD_VCCANA_PCIE_CPU1
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_VCCANA_PCIE_CPU1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_VCCANA_PCIE_CPU1
+
+
+set_location_assignment PIN_M15 -to PWRGD_VCCANA_PCIE_CPU2
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to PWRGD_VCCANA_PCIE_CPU2
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to PWRGD_VCCANA_PCIE_CPU2
+
+
+set_location_assignment PIN_P5 -to RST_CPU1_LVC3_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RST_CPU1_LVC3_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to RST_CPU1_LVC3_N
+set_instance_assignment -name SLEW_RATE 2 -to RST_CPU1_LVC3_N
+
+
+set_location_assignment PIN_P6 -to RST_CPU2_LVC3_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RST_CPU2_LVC3_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to RST_CPU2_LVC3_N
+set_instance_assignment -name SLEW_RATE 2 -to RST_CPU2_LVC3_N
+
+
+set_location_assignment PIN_K4 -to RST_DEDI_BUSY_PLD_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to RST_DEDI_BUSY_PLD_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to RST_DEDI_BUSY_PLD_N
+
+
+set_location_assignment PIN_K2 -to RST_PCIE_PERST0_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RST_PCIE_PERST0_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to RST_PCIE_PERST0_N
+set_instance_assignment -name SLEW_RATE 2 -to RST_PCIE_PERST0_N
+
+
+set_location_assignment PIN_K1 -to RST_PCIE_PERST1_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RST_PCIE_PERST1_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to RST_PCIE_PERST1_N
+set_instance_assignment -name SLEW_RATE 2 -to RST_PCIE_PERST1_N
+
+
+set_location_assignment PIN_J6 -to RST_PCIE_PERST2_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RST_PCIE_PERST2_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to RST_PCIE_PERST2_N
+set_instance_assignment -name SLEW_RATE 2 -to RST_PCIE_PERST2_N
+
+
+set_location_assignment PIN_C8 -to RST_PFR_EXTRST_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RST_PFR_EXTRST_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to RST_PFR_EXTRST_N
+
+
+set_location_assignment PIN_C9 -to RST_PFR_OVR_RTC_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RST_PFR_OVR_RTC_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to RST_PFR_OVR_RTC_N
+
+
+set_location_assignment PIN_C10 -to RST_PFR_OVR_SRTC_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RST_PFR_OVR_SRTC_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to RST_PFR_OVR_SRTC_N
+
+
+set_location_assignment PIN_K3 -to RST_PLTRST_PLD_B_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RST_PLTRST_PLD_B_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to RST_PLTRST_PLD_B_N
+set_instance_assignment -name SLEW_RATE 2 -to RST_PLTRST_PLD_B_N
+
+
+set_location_assignment PIN_J3 -to RST_PLTRST_PLD_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to RST_PLTRST_PLD_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to RST_PLTRST_PLD_N
+
+
+set_location_assignment PIN_G7 -to RST_RSMRST_PLD_R_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RST_RSMRST_PLD_R_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to RST_RSMRST_PLD_R_N
+set_instance_assignment -name SLEW_RATE 2 -to RST_RSMRST_PLD_R_N
+
+
+set_location_assignment PIN_D9 -to RST_SPI_PFR_BMC_BOOT_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RST_SPI_PFR_BMC_BOOT_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to RST_SPI_PFR_BMC_BOOT_N
+
+
+set_location_assignment PIN_A14 -to RST_SPI_PFR_PCH_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RST_SPI_PFR_PCH_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to RST_SPI_PFR_PCH_N
+
+
+set_location_assignment PIN_J4 -to RST_SRST_BMC_PLD_R_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RST_SRST_BMC_PLD_R_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to RST_SRST_BMC_PLD_R_N
+set_instance_assignment -name SLEW_RATE 2 -to RST_SRST_BMC_PLD_R_N
+
+
+set_location_assignment PIN_U7 -to SGPIO_BMC_CLK
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SGPIO_BMC_CLK
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SGPIO_BMC_CLK
+
+
+set_location_assignment PIN_U11 -to SGPIO_BMC_DIN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SGPIO_BMC_DIN
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SGPIO_BMC_DIN
+
+
+set_location_assignment PIN_U8 -to SGPIO_BMC_DOUT
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SGPIO_BMC_DOUT
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SGPIO_BMC_DOUT
+
+
+set_location_assignment PIN_U9 -to SGPIO_BMC_LD_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SGPIO_BMC_LD_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SGPIO_BMC_LD_N
+
+
+set_location_assignment PIN_K17 -to SGPIO_DEBUG_PLD_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SGPIO_DEBUG_PLD_CLK
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SGPIO_DEBUG_PLD_CLK
+
+
+set_location_assignment PIN_F15 -to SGPIO_DEBUG_PLD_DIN
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SGPIO_DEBUG_PLD_DIN
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SGPIO_DEBUG_PLD_DIN
+
+
+set_location_assignment PIN_K18 -to SGPIO_DEBUG_PLD_DOUT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SGPIO_DEBUG_PLD_DOUT
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SGPIO_DEBUG_PLD_DOUT
+
+
+set_location_assignment PIN_F16 -to SGPIO_DEBUG_PLD_LD_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SGPIO_DEBUG_PLD_LD_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SGPIO_DEBUG_PLD_LD_N
+
+
+set_location_assignment PIN_G15 -to SMB_BMC_HSBP_STBY_LVC3_SCL
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_BMC_HSBP_STBY_LVC3_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_BMC_HSBP_STBY_LVC3_SCL
+
+
+set_location_assignment PIN_G16 -to SMB_BMC_HSBP_STBY_LVC3_SDA
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_BMC_HSBP_STBY_LVC3_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_BMC_HSBP_STBY_LVC3_SDA
+
+
+set_location_assignment PIN_A12 -to SMB_BMC_SPD_ACCESS_STBY_LVC3_SCL
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_BMC_SPD_ACCESS_STBY_LVC3_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_BMC_SPD_ACCESS_STBY_LVC3_SCL
+
+
+set_location_assignment PIN_A13 -to SMB_BMC_SPD_ACCESS_STBY_LVC3_SDA
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_BMC_SPD_ACCESS_STBY_LVC3_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_BMC_SPD_ACCESS_STBY_LVC3_SDA
+
+
+set_location_assignment PIN_H11 -to SMB_CPU_PIROM_SCL
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_CPU_PIROM_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_CPU_PIROM_SCL
+
+
+set_location_assignment PIN_H12 -to SMB_CPU_PIROM_SDA
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_CPU_PIROM_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_CPU_PIROM_SDA
+
+
+set_location_assignment PIN_L16 -to SMB_DEBUG_PLD_SCL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SMB_DEBUG_PLD_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_DEBUG_PLD_SCL
+
+
+set_location_assignment PIN_M7 -to SMB_DEBUG_PLD_SDA
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_DEBUG_PLD_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_DEBUG_PLD_SDA
+set_instance_assignment -name SLEW_RATE 2 -to SMB_DEBUG_PLD_SDA
+
+
+set_location_assignment PIN_H17 -to SMB_PCH_PMBUS2_STBY_LVC3_SCL
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PCH_PMBUS2_STBY_LVC3_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PCH_PMBUS2_STBY_LVC3_SCL
+
+
+set_location_assignment PIN_H18 -to SMB_PCH_PMBUS2_STBY_LVC3_SDA
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PCH_PMBUS2_STBY_LVC3_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PCH_PMBUS2_STBY_LVC3_SDA
+
+
+set_location_assignment PIN_G11 -to SMB_PFR_DDRABCD_CPU1_LVC2_SCL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SMB_PFR_DDRABCD_CPU1_LVC2_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PFR_DDRABCD_CPU1_LVC2_SCL
+
+
+set_location_assignment PIN_G12 -to SMB_PFR_DDRABCD_CPU1_LVC2_SDA
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PFR_DDRABCD_CPU1_LVC2_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PFR_DDRABCD_CPU1_LVC2_SDA
+
+
+set_location_assignment PIN_G6 -to SMB_PFR_DDRABCD_CPU2_LVC2_SCL
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PFR_DDRABCD_CPU2_LVC2_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PFR_DDRABCD_CPU2_LVC2_SCL
+set_instance_assignment -name SLEW_RATE 2 -to SMB_PFR_DDRABCD_CPU2_LVC2_SCL
+
+
+set_location_assignment PIN_L15 -to SMB_PFR_DDRABCD_CPU2_LVC2_SDA
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PFR_DDRABCD_CPU2_LVC2_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PFR_DDRABCD_CPU2_LVC2_SDA
+
+
+set_location_assignment PIN_J18 -to SMB_PFR_DDREFGH_CPU1_LVC2_SCL
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PFR_DDREFGH_CPU1_LVC2_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PFR_DDREFGH_CPU1_LVC2_SCL
+
+
+set_location_assignment PIN_K12 -to SMB_PFR_DDREFGH_CPU1_LVC2_SDA
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PFR_DDREFGH_CPU1_LVC2_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PFR_DDREFGH_CPU1_LVC2_SDA
+
+
+set_location_assignment PIN_J15 -to SMB_PFR_DDREFGH_CPU2_LVC2_SCL
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PFR_DDREFGH_CPU2_LVC2_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PFR_DDREFGH_CPU2_LVC2_SCL
+
+
+set_location_assignment PIN_J16 -to SMB_PFR_DDREFGH_CPU2_LVC2_SDA
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PFR_DDREFGH_CPU2_LVC2_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PFR_DDREFGH_CPU2_LVC2_SDA
+
+
+set_location_assignment PIN_G17 -to SMB_PFR_HSBP_STBY_LVC3_SCL
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PFR_HSBP_STBY_LVC3_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PFR_HSBP_STBY_LVC3_SCL
+
+
+set_location_assignment PIN_G18 -to SMB_PFR_HSBP_STBY_LVC3_SDA
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PFR_HSBP_STBY_LVC3_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PFR_HSBP_STBY_LVC3_SDA
+
+
+set_location_assignment PIN_H15 -to SMB_PFR_PMB1_STBY_LVC3_SCL
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PFR_PMB1_STBY_LVC3_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PFR_PMB1_STBY_LVC3_SCL
+
+
+set_location_assignment PIN_H16 -to SMB_PFR_PMB1_STBY_LVC3_SDA
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PFR_PMB1_STBY_LVC3_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PFR_PMB1_STBY_LVC3_SDA
+
+
+set_location_assignment PIN_J11 -to SMB_PFR_PMBUS2_STBY_LVC3_SCL
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PFR_PMBUS2_STBY_LVC3_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PFR_PMBUS2_STBY_LVC3_SCL
+
+
+set_location_assignment PIN_J12 -to SMB_PFR_PMBUS2_STBY_LVC3_SDA
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PFR_PMBUS2_STBY_LVC3_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PFR_PMBUS2_STBY_LVC3_SDA
+
+
+set_location_assignment PIN_E18 -to SMB_PFR_RFID_STBY_LVC3_SCL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SMB_PFR_RFID_STBY_LVC3_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PFR_RFID_STBY_LVC3_SCL
+
+
+set_location_assignment PIN_F18 -to SMB_PFR_RFID_STBY_LVC3_SDA
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PFR_RFID_STBY_LVC3_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PFR_RFID_STBY_LVC3_SDA
+
+
+set_location_assignment PIN_U17 -to SMB_PMBUS_SML1_STBY_LVC3_SCL
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PMBUS_SML1_STBY_LVC3_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PMBUS_SML1_STBY_LVC3_SCL
+
+
+set_location_assignment PIN_U2 -to SMB_PMBUS_SML1_STBY_LVC3_SDA
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SMB_PMBUS_SML1_STBY_LVC3_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SMB_PMBUS_SML1_STBY_LVC3_SDA
+set_instance_assignment -name SLEW_RATE 2 -to SMB_PMBUS_SML1_STBY_LVC3_SDA
+
+
+set_location_assignment PIN_B18 -to SPI_BMC_BOOT_CS_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_BMC_BOOT_CS_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_BMC_BOOT_CS_N
+
+
+set_location_assignment PIN_L17 -to SPI_BMC_BOOT_R_CS1_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_BMC_BOOT_R_CS1_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_BMC_BOOT_R_CS1_N
+
+
+set_location_assignment PIN_E14 -to SPI_BMC_BT_MUXED_MON_CLK
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_BMC_BT_MUXED_MON_CLK
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_BMC_BT_MUXED_MON_CLK
+
+
+set_location_assignment PIN_F11 -to SPI_BMC_BT_MUXED_MON_MISO
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_BMC_BT_MUXED_MON_MISO
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_BMC_BT_MUXED_MON_MISO
+
+
+set_location_assignment PIN_F12 -to SPI_BMC_BT_MUXED_MON_MOSI
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SPI_BMC_BT_MUXED_MON_MOSI
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_BMC_BT_MUXED_MON_MOSI
+
+
+set_location_assignment PIN_D2 -to SPI_CPU1_PFR_CLK_PLD_R
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_CPU1_PFR_CLK_PLD_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_CPU1_PFR_CLK_PLD_R
+set_instance_assignment -name SLEW_RATE 2 -to SPI_CPU1_PFR_CLK_PLD_R
+
+
+set_location_assignment PIN_D4 -to SPI_CPU1_PFR_CS_PLD_R
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_CPU1_PFR_CS_PLD_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_CPU1_PFR_CS_PLD_R
+set_instance_assignment -name SLEW_RATE 2 -to SPI_CPU1_PFR_CS_PLD_R
+
+
+set_location_assignment PIN_E1 -to SPI_CPU1_PFR_MISO_PLD_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SPI_CPU1_PFR_MISO_PLD_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_CPU1_PFR_MISO_PLD_R
+set_instance_assignment -name SLEW_RATE 2 -to SPI_CPU1_PFR_MISO_PLD_R
+
+
+set_location_assignment PIN_E4 -to SPI_CPU1_PFR_MOSI_PLD_R
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_CPU1_PFR_MOSI_PLD_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_CPU1_PFR_MOSI_PLD_R
+set_instance_assignment -name SLEW_RATE 2 -to SPI_CPU1_PFR_MOSI_PLD_R
+
+
+set_location_assignment PIN_E5 -to SPI_CPU2_PFR_CLK_PLD_R
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_CPU2_PFR_CLK_PLD_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_CPU2_PFR_CLK_PLD_R
+set_instance_assignment -name SLEW_RATE 2 -to SPI_CPU2_PFR_CLK_PLD_R
+
+
+set_location_assignment PIN_F1 -to SPI_CPU2_PFR_CS_PLD_R
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_CPU2_PFR_CS_PLD_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_CPU2_PFR_CS_PLD_R
+set_instance_assignment -name SLEW_RATE 2 -to SPI_CPU2_PFR_CS_PLD_R
+
+
+set_location_assignment PIN_F2 -to SPI_CPU2_PFR_MISO_PLD_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SPI_CPU2_PFR_MISO_PLD_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_CPU2_PFR_MISO_PLD_R
+set_instance_assignment -name SLEW_RATE 2 -to SPI_CPU2_PFR_MISO_PLD_R
+
+
+set_location_assignment PIN_F5 -to SPI_CPU2_PFR_MOSI_PLD_R
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_CPU2_PFR_MOSI_PLD_R
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_CPU2_PFR_MOSI_PLD_R
+set_instance_assignment -name SLEW_RATE 2 -to SPI_CPU2_PFR_MOSI_PLD_R
+
+
+set_location_assignment PIN_A15 -to SPI_PCH_BMC_PFR_CS0_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_PCH_BMC_PFR_CS0_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PCH_BMC_PFR_CS0_N
+
+
+set_location_assignment PIN_B17 -to SPI_PCH_BMC_SAFS_MUXED_MON_CLK
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_PCH_BMC_SAFS_MUXED_MON_CLK
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PCH_BMC_SAFS_MUXED_MON_CLK
+
+
+set_location_assignment PIN_C11 -to SPI_PCH_BMC_SAFS_MUXED_MON_IO0
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_PCH_BMC_SAFS_MUXED_MON_IO0
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PCH_BMC_SAFS_MUXED_MON_IO0
+
+
+set_location_assignment PIN_C12 -to SPI_PCH_BMC_SAFS_MUXED_MON_IO1
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_PCH_BMC_SAFS_MUXED_MON_IO1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PCH_BMC_SAFS_MUXED_MON_IO1
+
+
+set_location_assignment PIN_C13 -to SPI_PCH_BMC_SAFS_MUXED_MON_IO2
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_PCH_BMC_SAFS_MUXED_MON_IO2
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PCH_BMC_SAFS_MUXED_MON_IO2
+
+
+set_location_assignment PIN_C14 -to SPI_PCH_BMC_SAFS_MUXED_MON_IO3
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_PCH_BMC_SAFS_MUXED_MON_IO3
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PCH_BMC_SAFS_MUXED_MON_IO3
+
+
+set_location_assignment PIN_F10 -to SPI_PCH_CS1_N
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_PCH_CS1_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PCH_CS1_N
+
+
+set_location_assignment PIN_D13 -to SPI_PFR_BMC_BOOT_R_IO2
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_PFR_BMC_BOOT_R_IO2
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PFR_BMC_BOOT_R_IO2
+
+
+set_location_assignment PIN_D14 -to SPI_PFR_BMC_BOOT_R_IO3
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_PFR_BMC_BOOT_R_IO3
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PFR_BMC_BOOT_R_IO3
+
+
+set_location_assignment PIN_C17 -to SPI_PFR_BMC_BT_SECURE_CS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SPI_PFR_BMC_BT_SECURE_CS_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PFR_BMC_BT_SECURE_CS_N
+
+
+set_location_assignment PIN_C15 -to SPI_PFR_BMC_FLASH1_BT_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SPI_PFR_BMC_FLASH1_BT_CLK
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PFR_BMC_FLASH1_BT_CLK
+
+
+set_location_assignment PIN_C16 -to SPI_PFR_BMC_FLASH1_BT_MISO
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_PFR_BMC_FLASH1_BT_MISO
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PFR_BMC_FLASH1_BT_MISO
+
+
+set_location_assignment PIN_D12 -to SPI_PFR_BMC_FLASH1_BT_MOSI
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SPI_PFR_BMC_FLASH1_BT_MOSI
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PFR_BMC_FLASH1_BT_MOSI
+
+
+set_location_assignment PIN_K11 -to SPI_PFR_BOOT_CS1_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SPI_PFR_BOOT_CS1_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PFR_BOOT_CS1_N
+
+
+set_location_assignment PIN_A17 -to SPI_PFR_PCH_BMC_SECURE_CS0_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SPI_PFR_PCH_BMC_SECURE_CS0_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PFR_PCH_BMC_SECURE_CS0_N
+
+
+set_location_assignment PIN_B11 -to SPI_PFR_PCH_R_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SPI_PFR_PCH_R_CLK
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PFR_PCH_R_CLK
+
+
+set_location_assignment PIN_B12 -to SPI_PFR_PCH_R_IO0
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_PFR_PCH_R_IO0
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PFR_PCH_R_IO0
+
+
+set_location_assignment PIN_B13 -to SPI_PFR_PCH_R_IO1
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_PFR_PCH_R_IO1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PFR_PCH_R_IO1
+
+
+set_location_assignment PIN_B14 -to SPI_PFR_PCH_R_IO2
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_PFR_PCH_R_IO2
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PFR_PCH_R_IO2
+
+
+set_location_assignment PIN_B16 -to SPI_PFR_PCH_R_IO3
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to SPI_PFR_PCH_R_IO3
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PFR_PCH_R_IO3
+
+
+set_location_assignment PIN_G10 -to SPI_PFR_PCH_SECURE_CS1_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SPI_PFR_PCH_SECURE_CS1_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to SPI_PFR_PCH_SECURE_CS1_N
+
+
+set_location_assignment PIN_L18 -to FM_PFR_SLP_SUS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FM_PFR_SLP_SUS_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to FM_PFR_SLP_SUS_N
+
+
+
+#### There should be no assignments after this line
+
+
+set_global_assignment -name LAST_QUARTUS_VERSION "18.1.1 SP1.01std Standard Edition"

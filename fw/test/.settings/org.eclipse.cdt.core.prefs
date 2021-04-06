@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+environment/project/0.1046326076/LD_LIBRARY_PATH/delimiter=\:
+environment/project/0.1046326076/LD_LIBRARY_PATH/operation=replace
+environment/project/0.1046326076/LD_LIBRARY_PATH/value=${GCC_ROOTDIR}/lib64\:${VCS_HOME}/../debug/share/PLI/VCS/LINUX64\:${PYTHON_ROOT}/lib\:${LSF_LIBDIR}\:/p/psg/ctools/perl/5.8.8/linux64/lib
+environment/project/0.1046326076/append=true
+environment/project/0.1046326076/appendContributed=true
