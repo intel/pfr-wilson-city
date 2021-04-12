@@ -10,6 +10,8 @@ Intel(R) PFR monitors and filters malicious traffic on the system buses. It also
 ## License
 Unless otherwise identified in the header file, all source code (RTL, Nios C-code and unit test Cpp-code) are released under MIT license. 
 
+## Support
+This reference design is provided as-is. Technical support for this design is provided based on consultation basis from https://community.intel.com  or from Intel Premier Support (IPS). Any customization or modification requests on the design will not be supported. 
 
 ## Contributing
 
